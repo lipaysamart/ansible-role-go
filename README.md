@@ -1,38 +1,36 @@
-Role Name
-=========
-
-A brief description of the role goes here.
-
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+N/A
+
 
 Role Variables
 --------------
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+```sh
+go_version: "1.24.1"
+go_platform: "linux"
+go_arch: "amd64"
+go_tarball: "go{{ go_version }}.{{ go_platform }}-{{ go_arch }}.tar.gz"
+go_download_url: https://dl.google.com/go/{{ go_tarball }}
+go_checksum: "cb2396bae64183cdccf81a9a6df0aea3bce9511fc21469fb89a0c00470088073"
+```
 
 Dependencies
 ------------
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+None
 
 Example Playbook
 ----------------
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
-
-    - hosts: servers
-      roles:
-         - { role: username.rolename, x: 42 }
+```yml
+- hosts: localhost
+  roles:
+  - lipaysamart.go
+```
 
 License
 -------
 
-BSD
-
-Author Information
-------------------
-
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+MIT
